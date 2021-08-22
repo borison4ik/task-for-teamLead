@@ -2,13 +2,14 @@ document.addEventListener('DOMContentLoaded', () => {
   console.log('load');
   const deadline = new Date().getTime() + 60000 * 30;
   const phone = document.querySelector('.number');
+  const btns = document.querySelectorAll('.orderBtn');
   let timerId = null;
 
-  phone.addEventListener('input', function (event) {
+  phone.addEventListener('input', function () {
     this.value = this.value.replace(/[^\d.]/g, '');
   });
 
-  document.querySelectorAll('.orderBtn').forEach((link) => {
+  btns.forEach((link) => {
     link.addEventListener('click', function (e) {
       e.preventDefault();
       const scrollTarget = document.getElementById('order');
